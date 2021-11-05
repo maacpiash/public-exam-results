@@ -1,0 +1,15 @@
+{
+  "name": "public-exam-results",
+  "author": {
+    "email": "ahad@maacpiash.com",
+    "name": "Mohammad Abdul Ahad Chowdhury",
+    "url": "https://www.maacpiash.com"
+  },
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node ."
+  }
+}
