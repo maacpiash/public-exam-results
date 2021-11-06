@@ -115,3 +115,8 @@ tslib@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
+
+vardict@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/vardict/-/vardict-2.0.0.tgz#818e8a658284ca069571b21f042298a4685c864a"
+  integrity sha512-VtdoqmZ3r7EEYP0wVFMarYaLC3eaCwFYbE1kxfK250nIj0nZVI2vKVhxacnLVqI4cFYHlEwOLQhcqMpVvyoPmQ==
