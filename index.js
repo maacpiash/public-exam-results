@@ -1,19 +1,24 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'fs'
 import { load } from 'cheerio'
+import vardict from 'vardict'
 import preprocess from './preprocessor.js'
 import parse from './parser.js'
 
-const district = 'COMILLA'
+const { default: { dir } } = vardict
 
-const fileContent = readFileSync(`data/${district.toUpperCase()}.htm`).toString()
+const destDir = dir.replace('htm', 'json')
+if (!existsSync(destDir)) {
+  mkdirSync(destDir, { recursive: true })
+}
 
-const processedContent = preprocess(fileContent)
+const files = readdirSync(dir).filter(file => file.endsWith('.htm'))
 
-const $ = load(processedContent)
-
-const results = $('div.result').toArray().map(item => $(item).text())
-
-const data = parse(results)
-console.log(data.length)
-
-writeFileSync(`data/${district}.json`, JSON.stringify(data, null, 2))
+files.forEach(file => {
+  const fileContent = readFileSync(`${dir}/${file}`).toString()
+  const processedContent = preprocess(fileContent)
+  const $ = load(processedContent)
+  const results = $('div.result').toArray().map(item => $(item).text())
+  const data = parse(results)
+  const district = file.split('.')[0]
+  writeFileSync(`${destDir}/${district}.json`, JSON.stringify(data, null, 2))
+})
