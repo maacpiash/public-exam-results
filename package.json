@@ -10,7 +10,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "node . --dir ./data/htm/ssc-2019"
+    "start:ssc-2019": "node . --dir ./data/htm/ssc-2019",
+    "start:ssc-2020": "node . --dir ./data/htm/ssc-2020"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
