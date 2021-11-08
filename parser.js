@@ -10,8 +10,12 @@ export default function parser(results) {
     for (let j = 1; j < values.length; j++) {
       if (!values[j]) continue
       if (values[j].includes('PASSED') || values[j].includes('NOT PASSED') || values[j].includes('GPA5')) {
-        let stat = values[j].split('=')
-        school[key][stat[0]] = Number(stat[1])
+        try {
+          let stat = values[j].split('=')
+          school[key][stat[0]] = Number(stat[1])
+        } catch (e) {
+          continue
+        }
       } else {
         key = values[j]
         school[key] = {}
